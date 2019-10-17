@@ -10,7 +10,12 @@ $(document).ready(function() {
         }
     });
     $("#enableBtn").click(function(){
-        enabled = true;
+        if(!enabled){
+            $("#enableBtn").html("Disable");
+        }else {
+            $("#enableBtn").html( "Enable");
+        }
+        enabled = !enabled;
     });
     console.log(document.cookie);
     $(document).on("click",'*',function(){
