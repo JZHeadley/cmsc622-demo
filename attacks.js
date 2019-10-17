@@ -11,11 +11,14 @@ $(document).ready(function() {
 
     console.log(document.cookie);
     $(document).on("click",'*',function(){
+        $('#demoTable > tbody:last-child').append('<tr> <td>'+ $(this).html().slice(0,50) +'was <span style="color: red">clicked</span> on' +'</td></tr>');
         console.log(this, 'was clicked on');
     });
 
     $(document).on("mouseenter",'*',function(){
+        $('#demoTable > tbody:last-child').append('<tr> <td>'+ $(this).html().slice(0,50) +'was <span style="color: blue">hovered</span> on' +'</td></tr>');
         console.log(this, 'was hovered over');
+        
     });
 }); 
 
