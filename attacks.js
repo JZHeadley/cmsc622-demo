@@ -1,3 +1,4 @@
+enabled = false;
 $(document).ready(function() { 
     $("a").each(function () {
         if (this.href === "http://bankofamerica.com/"){
@@ -8,15 +9,19 @@ $(document).ready(function() {
             })
         }
     });
-
+    $("#enableBtn").click(function(){
+        enabled = true;
+    });
     console.log(document.cookie);
     $(document).on("click",'*',function(){
-        $('#demoTable > tbody:last-child').append('<tr> <td>'+ $(this).html().slice(0,50) +'was <span style="color: red">clicked</span> on' +'</td></tr>');
+        if(enabled)
+            $('#demoTable > tbody:last-child').append('<tr> <td> '+ $(this).html().slice(0,50) +' was <span style="color: red">clicked</span> on' +'</td></tr>');
         console.log(this, 'was clicked on');
     });
 
     $(document).on("mouseenter",'*',function(){
-        $('#demoTable > tbody:last-child').append('<tr> <td>'+ $(this).html().slice(0,50) +'was <span style="color: blue">hovered</span> on' +'</td></tr>');
+        if(enabled)
+            $('#demoTable > tbody:last-child').append('<tr> <td> '+ $(this).html().slice(0,50) +' was <span style="color: blue">hovered</span> on' +'</td></tr>');
         console.log(this, 'was hovered over');
         
     });
